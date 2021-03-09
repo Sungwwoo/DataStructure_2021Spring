@@ -5,11 +5,7 @@ using namespace std;
 Matrix compute(Matrix& A, Matrix& B, Matrix& C){
 	// TODO
 	Matrix result;
-	for (int i = 0; i < 2; i++) {
-		for (int j = 0; j < 2; j++) {
-			result.matrix[i][j] = 3 * A.matrix[i][j] + 2 * B.matrix[i][j] - 5 * C.matrix[i][j];
-		}
-	}
+	result = 3 * A + 2 * B - 5 * C;
 	return result;
 }
 
