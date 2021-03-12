@@ -7,13 +7,13 @@ int main(int argc, char* argv[]){
 	ofstream output_file(argv[2]);
 	
 	char ch;
-
-	while (!input_file.eof()){			// Repeat the loop until it is not the EOF
-		input_file.get(ch);
-		if (input_file.fail())
+	
+	while (!input_file.eof()){
+		input_file.get(ch);				// Reaching the EOF sets eofbit and failbit.
+		if (input_file.fail())			// Check EOF and error through failbit
 			break;
-		if (ch == 0x0D) 				// if ch == '\r', add '\n' 
-			output_file << '\n';
+		if (ch == '\n') 				// if ch == '\n', add '\r\n' to text file
+			output_file << '\r' << ch;
 		else
 			output_file << ch;
 	}
