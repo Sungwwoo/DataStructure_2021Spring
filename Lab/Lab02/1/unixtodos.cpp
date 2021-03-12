@@ -1,5 +1,4 @@
 #include <fstream>
-#include <iostream>
 using namespace std;
 
 int main(int argc, char* argv[]){
@@ -7,10 +6,9 @@ int main(int argc, char* argv[]){
 	ifstream input_file(argv[1]);
 	ofstream output_file(argv[2]);
 	
-
 	char ch;
 
-	while (!input_file.eof()){			// Repeat the loop until it is not t he EOF
+	while (!input_file.eof()){			// Repeat the loop until it is not the EOF
 		input_file.get(ch);
 		if (input_file.fail())
 			break;
