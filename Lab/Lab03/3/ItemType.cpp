@@ -7,7 +7,7 @@ void HouseType::GetFromFile(std::ifstream& file)
   lastName.GetStringFile(true, NOT_NEW, file);
   firstName.GetStringFile(true, NOT_NEW, file);
   address.GetStringFile(true, NOT_NEW, file);
-  file >> price >> squareFeet >> bedRooms;
+  file >> price >> squareFeet >> bedRooms >> bathRooms;
 }
 
 void HouseType::WriteToFile(std::ofstream& file)
@@ -19,6 +19,7 @@ void HouseType::WriteToFile(std::ofstream& file)
   file << endl << price << endl;
   file << squareFeet << endl;
   file << bedRooms << endl;
+  file << bathRooms << endl;
 }
 
 void HouseType::GetFromUser() 
@@ -30,9 +31,9 @@ void HouseType::GetFromUser()
   firstName.GetString(true, NOT_NEW);
   cout << "Enter address; press return." << endl;
   address.GetString(true, NOT_NEW);
-  cout << "Enter price, square feet, number of bedrooms;"
+  cout << "Enter price, square feet, number of bedrooms, number of bathrooms;"
        << " press return." << endl;
-  cin >> price >> squareFeet >> bedRooms;
+  cin >> price >> squareFeet >> bedRooms >> bathRooms;
 }
 
 void HouseType::PrintHouseToScreen()
@@ -45,6 +46,7 @@ void HouseType::PrintHouseToScreen()
   cout << endl << "Price: " << price << endl;
   cout << "Square Feet: " << squareFeet << endl;
   cout << "Bedrooms: " << bedRooms << endl;
+  cout << "Bathrooms: " << bathRooms << endl;
 }
 
 void HouseType::GetNameFromUser() 
@@ -67,13 +69,26 @@ void HouseType::PrintNameToScreen()
 
 RelationType HouseType::ComparedTo(HouseType house)
 {
-  if (lastName < house.lastName)
+  if (*this < house)
     return LESS;
-  else if (house.lastName < lastName)
+  else if (*this == house)
+    return EQUAL;
+  else
     return GREATER;
-  else if (firstName < house.firstName)
-    return LESS;
-  else if (house.firstName < firstName)
-    return GREATER;
-  else return EQUAL;
  }
+
+bool HouseType::operator<(const HouseType& other){
+  if (lastName < other.lastName)
+    return true;
+  else if (lastName < other.lastName)
+    return true;
+  else 
+    return false;
+}
+bool HouseType::operator==(const HouseType& other){
+  if (lastName == other.lastName && firstName == other.firstName)
+    return true;
+  else 
+    return false;
+  
+}

@@ -32,7 +32,7 @@ int main()
   CommandType command; 
   SortedType houseList;
 
-  FileToList(houseList, masterIn); 
+  FileToList(houseList, masterIn);
 
   GetCommand(command); 
   // Read and process commands until user enters a quit command. 
