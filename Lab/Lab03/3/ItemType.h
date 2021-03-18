@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __ITEMTYPE_H__
+#define __ITEMTYPE_H__
 // ItemType.h  contains the specifications for the data for the real 
 //  estate manipulation program.
 
@@ -7,8 +8,6 @@ const int MAX_ITEMS = 25;
 #include <fstream> 
 #include "StrTypeAugmented.h"   // Gain access to String ADT.
 enum RelationType {LESS, EQUAL, GREATER};
-
-
 class HouseType
 { 
 public:
@@ -27,6 +26,9 @@ private:
   float price; 
   int squareFeet; 
   int bedRooms; 
-};
+}; 
 
+// Make ItemType an alias for HouseType. 
 typedef HouseType ItemType;
+
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __SORTED_H__
+#define __SORTED_H__
+
 #include "ItemType.h" 
 // File ItemType.h must be provided by the user of this class. 
 //  ItemType.h must contain the following definitions: 
@@ -70,3 +72,5 @@ private:
   ItemType info[MAX_ITEMS];
   int currentPos;
 };
+
+#endif

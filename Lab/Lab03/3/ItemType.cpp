@@ -1,9 +1,4 @@
-
 #include "ItemType.h"
-// Make ItemType an alias for HouseType. 
-
-
-
 // ItemType.cpp is the implementation file for data for the real 
 //  estate manipulation program.
  

@@ -73,6 +73,7 @@ void FileToList(SortedType& houseList, std::ifstream& masterIn)
   cout << "Enter name of file of houses; press return." << endl;
   cin  >> inFileName;
   masterIn.open(inFileName.c_str());
+
   item.GetFromFile(masterIn);  // Reads one item from masterIn.
   while (masterIn) 
   {
@@ -224,3 +225,5 @@ void GetCommand(CommandType& command)
     }
   }
 }
+
+

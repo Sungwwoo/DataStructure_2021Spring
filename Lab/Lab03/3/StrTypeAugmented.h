@@ -1,10 +1,10 @@
-#pragma once
+#ifndef __STRTYPEARGUMENTED_H__
+#define __STRTYPEARGUMENTED_H__
 // StrTypeAugmented.h
 // Contains both header file and implementation file for StrType class
 // Contains overloaded operators necessary for Real Estate Program
 #include <fstream>
 #include <iostream>
-
 #include <cctype>
 #include <cstring>
 
@@ -49,7 +49,7 @@ private:
     char letters[MAX_CHARS + 1];
 };
 
-
+#endif
 
 
 
