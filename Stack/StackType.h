@@ -1,7 +1,7 @@
 #ifndef __STACKTYPE_H__
 #define __STACKTYPE_H__
 
-#include "ItemType.h"
+const int MAX_ITEMS = 5;
 
 template<class ItemType>
 class StackType{
