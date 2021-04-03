@@ -73,7 +73,7 @@ void QueType::Dequeue(ItemType& item)
 }
 
 void QueType::ReplaceItem(ItemType oldItem, ItemType newItem){
-  for (int i = 0; i < maxQue; i ++){
+  for (int i = (front + 1) % maxQue; i <= rear; i = (i + 1) % maxQue){
     if (items[i] == oldItem){
       items[i] = newItem;
     }

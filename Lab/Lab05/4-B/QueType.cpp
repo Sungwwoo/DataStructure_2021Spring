@@ -72,10 +72,9 @@ void QueType::Dequeue(ItemType& item)
   }
 }
 
-bool QueType::Identical(QueType& queue){
-  for (int i = (front + 1) % maxQue; i <= rear; i = (i + 1) % maxQue)
-    if (items[i] != queue.items[i])
-      return false;
-  return true;
-
+int QueType::Length(){
+  if (rear < front)
+    return (rear + maxQue - front);
+  else
+    return rear - front;
 }

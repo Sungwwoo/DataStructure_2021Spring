@@ -38,7 +38,6 @@ public:
     //       and item is undefined
     //       else front element has been removed from queue and
     //       item is a copy of removed element.
-    bool Identical(QueType& queue);
 private:
     int front;
     int rear;

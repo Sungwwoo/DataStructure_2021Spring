@@ -2,7 +2,6 @@
 #include "QueType.h"
 using namespace std;
 
-bool Identical(QueType& queue1, QueType& queue2);
 
 int main(){
     QueType queue1(9);
@@ -16,25 +15,11 @@ int main(){
         queue1.Enqueue(itemList1[i]);
         queue2.Enqueue(itemList2[i]);
     }
-
-    equal = Identical(queue1, queue2);
-    
-    if (equal)
+   
+    if (queue1.Identical(queue2))
         cout << "Two queues are equal" << endl;
     else
         cout << "Two queues are not equal" << endl;
 
     return 0;
-}
-
-bool Identical(QueType& queue1, QueType& queue2) {
-    int item1, item2;
-    while (!queue1.IsEmpty()) {
-        queue1.Dequeue(item1);
-        queue2.Dequeue(item2);
-        cout << item1 << ", " << item2 << endl;
-        if (item1 != item2)
-            return false;
-    }
-    return true;
 }
