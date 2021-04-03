@@ -59,7 +59,7 @@ void QueType::Enqueue(ItemType newItem)
     throw FullQueue();
   int count = 0;
   int currentPos = front;
-  while (count <= length){
+  while (count < length){
     // check -1
     if (items[currentPos] != -1){
       count++;
@@ -74,15 +74,25 @@ void QueType::Enqueue(ItemType newItem)
       ItemType tempItem = items[currentPos];
       int count2 = 0;
       while (count2 < length){
-        if (items[currentPos] == -1 || items[currentPos] > tempItem){
+        if (items[currentPos] == -1){
           currentPos = (currentPos + 1) % maxQue;
+          if (tempItem == -1){
+            tempItem = items[currentPos];
+          }
+        }
+        else if(items[currentPos] > tempItem){
+          currentPos = (currentPos + 1) % maxQue;
+          if (tempItem == -1){
+            tempItem = items[currentPos];
+          }
+          count2++;
         }
         else if (items[currentPos] <= tempItem){
           tempItem = items[currentPos];
           minimum_pos = currentPos;
           currentPos = (currentPos + 1) % maxQue;
+          count2++;
         }
-        count2++;
       }
       return;
     }
