@@ -26,10 +26,15 @@ int main(){
         queue1.MinDequeue(item);
         cout << item << " ";
     }
-    cout << endl;
+    cout << endl;cout << "Enqueue: " << endl;
+    for (int i = 0; i < 6; i ++){
+        randomValue = distribution(generator);
+        cout << randomValue << " ";
+        queue1.Enqueue(randomValue);
+    }
     cout << endl;
     cout << "Dequeue: " << endl;
-    for (int i = 0; i < queueSize-2; i ++){
+    for (int i = 0; i < queueSize; i ++){
         queue1.Dequeue(item);
         cout << item << " ";
     }

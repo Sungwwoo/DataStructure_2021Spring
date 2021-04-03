@@ -55,7 +55,8 @@ void QueType::Enqueue(ItemType newItem)
 // Post: If (queue is not full) newItem is at the rear of the queue;
 //       otherwise a FullQueue exception is thrown.  
 { 
-
+  if (IsFull())
+    throw FullQueue();
   int count = 0;
   int currentPos = front;
   while (count <= length){
@@ -65,6 +66,7 @@ void QueType::Enqueue(ItemType newItem)
       currentPos = (currentPos + 1) % maxQue;
     }
     else{
+      length++;
       items[currentPos] = newItem;
       currentPos = front;
 
@@ -87,8 +89,7 @@ void QueType::Enqueue(ItemType newItem)
   }
   
   // if there is no -1, enqueue normally
-  if (IsFull())
-    throw FullQueue();
+  
   
   length++;
   if (length == 1){
@@ -126,34 +127,52 @@ void QueType::Dequeue(ItemType& item)
 {
   if (IsEmpty())
     throw EmptyQueue();
-    else
+  else
   {
     length--;
     item = items[front];
+    while (item == -1){
+      front = (front + 1) % maxQue;
+      item = items[front];
+    }
     front = (front + 1) % maxQue;
   }
 }
 
 void QueType::MinDequeue(ItemType& item){
-  item = items[minimum_pos];
-  items[minimum_pos] = -1;
+  if (IsEmpty())
+    throw EmptyQueue();
+  else{
+    length --;
+    item = items[minimum_pos];
+    items[minimum_pos] = -1;
   
-  // find minimum_pos
-  int currentPos = front;
-  ItemType tempItem = items[currentPos];
-  int count = 0;
-  while (count < length){
-    if (items[currentPos] == -1 | items[currentPos] > tempItem){
-      currentPos = (currentPos + 1) % maxQue;
-      if (tempItem == -1){
+    // find minimum_pos
+    int currentPos = front;
+    ItemType tempItem = items[currentPos];
+    int count = 0;
+    while (count < length){
+      if (items[currentPos] == -1){
+        currentPos = (currentPos + 1) % maxQue;
+        if (tempItem == -1){
+          tempItem = items[currentPos];
+        }
+      }
+      else if(items[currentPos] > tempItem){
+        currentPos = (currentPos + 1) % maxQue;
+        if (tempItem == -1){
+          tempItem = items[currentPos];
+        }
+      
+        count++;
+      }
+      else if (items[currentPos] <= tempItem){
         tempItem = items[currentPos];
+        minimum_pos = currentPos;
+        currentPos = (currentPos + 1) % maxQue;
+      
+        count++;
       }
     }
-    else if (items[currentPos] <= tempItem){
-      tempItem = items[currentPos];
-      minimum_pos = currentPos;
-      currentPos = (currentPos + 1) % maxQue;
-    }
-    count++;
   }
 }
