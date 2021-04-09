@@ -20,4 +20,6 @@ int main(){
     stack.Pop();
     cout << "Item: " << item << endl;
   }
+
+  return 0;
 }
