@@ -16,14 +16,14 @@ int main(){
         cout << data << " ";
     }
     cout << endl;
-    list1.DeleteItem(6);
+    list1.DeleteItem(7);
 
     list1.ResetList();
-    for (int i = 0; i < list1.LengthIs(); i++){
+    for (int i = 0; i < list1.LengthIs() + 1; i++){
         list1.GetNextItem(data);
         cout << data << " ";
     }
     cout << endl;
     
     return 0;
-}
+    }

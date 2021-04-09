@@ -218,5 +218,4 @@ void UnsortedType<ItemType>::GetNextItem(ItemType& item)
   else
     currentPos = currentPos->next;
   item = currentPos->info;
-} 
-
+}

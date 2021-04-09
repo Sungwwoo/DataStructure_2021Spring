@@ -203,7 +203,7 @@ void SortedType<ItemType>::DeleteItem(ItemType item)
         listData = listData->next;		// Delete first node.
     }
     else
-    {
+    { 
         while (item != location->info){
           prevLocation = location;
           if (location->next == NULL)
@@ -211,13 +211,13 @@ void SortedType<ItemType>::DeleteItem(ItemType item)
           else
             location = location->next;
         }
-          
         // Delete node at location
         tempLocation = location;
         prevLocation->next = location->next;
+        delete tempLocation;
+        length--; 
     }
-    delete tempLocation;
-    length--;
+    
 }
 
 template <class ItemType>
