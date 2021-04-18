@@ -2,8 +2,8 @@
 #ifndef __QUETYPE_H__
 #define __QUETYPE_H__
 
-class FullQue{};
-class EmptyQue{};
+class FullQueue{};
+class EmptyQueue{};
 
 template <class ItemType>
 struct NodeType;
@@ -22,7 +22,5 @@ private:
     NodeType<ItemType>* qFront;
     NodeType<ItemType>* qRear;
 };
-
-
 
 #endif
