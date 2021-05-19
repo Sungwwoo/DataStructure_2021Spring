@@ -6,12 +6,6 @@ using namespace std;
 bool MatchingItem_Unsorted(TreeType& tree, UnsortedType<ItemType>& list);
 
 int main(){
-    UnsortedType<int> list;
-    for (int i = 1; i <= 7; i++){
-        list.InsertItem(i);
-    }
-
-    TreeType tree;
     
     return 0;
 }
