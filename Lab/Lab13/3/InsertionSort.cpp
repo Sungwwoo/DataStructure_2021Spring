@@ -6,7 +6,7 @@ void InsertItem(Student values[], int startIndex, int endIndex){
     bool moreToSearch = (current != startIndex);
 
     while (moreToSearch && !finished){
-        if (*values[current].getName() < *values[current - 1].getName()){
+        if (strcmp(values[current].getName(), values[current - 1].getName()) < 0){
             Swap(values[current], values[current - 1]);
             moreToSearch = (current != startIndex);
         }

@@ -2,7 +2,7 @@
 
 void BubbleDown(Student values[], int startIndex, int endIndex){
     for (int index = startIndex; index < endIndex; index++)
-        if (*values[index].getName() > *values[index + 1].getName())
+        if (strcmp(values[index].getName(), values[index + 1].getName()) > 0)
             Swap(values[index], values[index+1]);
 }
 
